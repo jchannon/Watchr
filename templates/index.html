@@ -1,11 +1,11 @@
-<span>{{items.length}} item(s) in stock</span>
-<div class="item" ng-repeat="item in items">
-    <div class="item-image">
-        <a href="#/{{item.id}}">
-            <img ng-src="{{item.image}}" alt="{{item.title}}" />
-        </a>
+<div class="ui grid">
+    <div class="row" ng-repeat="item in data.results">
+        <div class="column">
+            <div class="ui segment">
+                {{item.original_title}}
+                <img src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{item.poster_path}}" />
+            </div>
+        </div>
     </div>
-    <div class="item-artist">{{item.artist}}</div>
-    <div class="item-title">{{item.title}}</div>
-    <div class="item-price">${{item.price}}</div>
+
 </div>
