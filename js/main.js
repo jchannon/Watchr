@@ -280,6 +280,36 @@
         };
     });
 
-
+app
+    .directive('grid', function() {
+      return {
+          restrict: 'E',
+          scope: {
+            break: '=break',
+            source: '=source'
+          },
+          controller: function($scope) {
+            var total = Math.ceil($scope.source.length / $scope.break);
+            $scope.data = new Array(total);
+            for (var i = 0; i < total; ++i) {
+              $scope.data[i] = $scope.source.slice(i * $scope.break, (i + 1) * $scope.break);
+            }
+          },
+          template:
+            '<div class="ui five column grid">' +
+            '  <div class="row" ng-repeat="row in data">' +
+            '    <div class="column" ng-repeat="item in row">' +
+            '      <div class="ui segment">' +
+            '        <p>{{item.original_title}}</p>' + 
+            '        <a class="ui image" href="#">' + 
+            '          <img src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{item.poster_path}}" />' +
+            '        </a>' +
+            '      </div>' +
+            '    </div>' +
+            '  </div>' +
+            '</div>',
+          replace: true
+      };
+  });
 
 })();

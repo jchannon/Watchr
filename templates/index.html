@@ -1,11 +1,4 @@
-<div class="ui grid">
-    <div class="row" ng-repeat="item in data.results">
-        <div class="column">
-            <div class="ui segment">
-                {{item.original_title}}
-                <img src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w92{{item.poster_path}}" />
-            </div>
-        </div>
-    </div>
-
-</div>
+<h4 class="ui block red header">
+  Watchr
+</h4>
+<grid source="data.results" break="5" />
